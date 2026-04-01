@@ -1,6 +1,5 @@
 # 🚀 Ride Demand Forecasting & Dynamic Surge Pricing
 
-Built for Rapido Data Science Internship application.
 
 ## 📌 Problem Statement
 Predict hourly ride demand across city zones and dynamically
