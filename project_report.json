@@ -1,0 +1,52 @@
+{
+  "project": "Ride Demand Forecasting & Dynamic Surge Pricing",
+  "built_for": "Rapido Data Science Internship",
+  "date": "2026-04-01",
+  "dataset": {
+    "rows": 500000,
+    "features": 17,
+    "date_range": "2023-01-01 to 2023-12-31"
+  },
+  "model": {
+    "algorithm": "XGBoost Regressor",
+    "train_size": 400000,
+    "test_size": 100000,
+    "features_used": [
+      "hour",
+      "day_of_week",
+      "month",
+      "is_weekend",
+      "is_rush_hour",
+      "is_night",
+      "rainfall",
+      "is_holiday",
+      "temperature",
+      "temp_category",
+      "vehicle_encoded",
+      "zone_encoded"
+    ],
+    "hyperparameters": {
+      "n_estimators": 200,
+      "max_depth": 6,
+      "learning_rate": 0.1
+    }
+  },
+  "results": {
+    "MAE": 2.37,
+    "RMSE": 2.97,
+    "R2_score": 0.9484
+  },
+  "key_findings": [
+    "Evening rush hour (5PM-9PM) has highest demand \u2014 20+ extra rides per hour",
+    "Rainfall increases demand by ~12 rides per hour on average",
+    "Airport and Downtown zones consistently show highest demand",
+    "Weekend demand is 8 rides/hour higher than weekdays",
+    "Surge pricing activates at 1.5x during moderate demand-supply imbalance"
+  ],
+  "surge_pricing_logic": {
+    "1.0x": "Demand/Driver ratio < 0.8 (Normal)",
+    "1.5x": "Demand/Driver ratio 0.8-1.2 (Moderate)",
+    "2.0x": "Demand/Driver ratio 1.2-1.8 (High)",
+    "3.0x": "Demand/Driver ratio > 1.8 (Very High)"
+  }
+}
